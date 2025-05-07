@@ -1,0 +1,49 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SanityBar : MonoBehaviour
+{
+    public float maxHealth = 100f;
+    public float currentHealth;
+    public float damageRate = 10f;
+    public float detectionRadius = 3f;
+
+    public Slider healthSlider;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthUI();
+    }
+
+    private void Update()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius);
+
+        bool nearEnemy = false;
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Ghost"))
+            {
+                nearEnemy = true;
+                break;
+            }
+        }
+
+        if (nearEnemy)
+        {
+            currentHealth -= damageRate * Time.deltaTime;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            UpdateHealthUI();
+        }
+    }
+
+    void UpdateHealthUI()
+    {
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth / maxHealth;
+        }
+    }
+}
