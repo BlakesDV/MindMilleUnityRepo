@@ -4,5 +4,15 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MindMille/Scenes/MainMenu.unity
+    guid: fabaa8d9ea06f3d40aad0ac7a17cd694
+  - enabled: 1
+    path: Assets/MindMille/Scenes/Gameplay.unity
+    guid: 61fb618f55030c14cbaf15fcb9d29449
+  - enabled: 1
+    path: Assets/MindMille/Scenes/ControlsMenu.unity
+    guid: faa828e814ede2e4b9cd7c5e03b1df62
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
